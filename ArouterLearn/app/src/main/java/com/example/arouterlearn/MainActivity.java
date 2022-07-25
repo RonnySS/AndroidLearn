@@ -37,10 +37,6 @@ public class MainActivity extends AppCompatActivity {
                 FragmentManager fm = getSupportFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
                 Fragment targetFragment = (Fragment)ARouter.getInstance().build("/fragments/no1")
-//                        .withString("name","mike")
-//                        .withInt("age",18)
-//                        .withObject("human",new Employee("Bob",30000))
-//                        .withBoolean("girl",true)
                         .navigation();
 
 
@@ -59,5 +55,15 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_VIEW,
                 Uri.parse(url));
         startActivity(intent);
+    }
+
+
+    void navToActivity(){
+        ARouter.getInstance().build("/test/activity2")
+                        .withString("name","mike")
+                        .withInt("age",18)
+                        .withObject("human",new Employee("Bob",30000))
+                        .withBoolean("girl",true)
+                .navigation();
     }
 }
