@@ -28,3 +28,10 @@ public class ViewPagerFragmentStateAdapter extends FragmentStateAdapter {
         return fragments.size();
     }
 }
+
+
+
+
+
+
+

@@ -7,7 +7,9 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
+import com.example.viewpager2learn.fragments.Fragmen4;
 import com.example.viewpager2learn.fragments.Fragment1;
 import com.example.viewpager2learn.fragments.Fragment2;
 import com.example.viewpager2learn.fragments.Fragment3;
@@ -30,11 +32,10 @@ public class MainActivity extends AppCompatActivity {
         fragments.add(new Fragment1());
         fragments.add(new Fragment2());
         fragments.add(new Fragment3());
-        fragments.add(new Fragment4());
+        fragments.add(new Fragmen4());
         viewPager2.setAdapter(new ViewPagerFragmentStateAdapter(this,fragments));
+        //将tabLayout与viewPager进行绑定
         new TabLayoutMediator(tabLayout, viewPager2, (tab, position) -> tab.setText("ssss")).attach();
-        // 滑动监听
-
         /*
         viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
@@ -53,6 +54,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
          */
+
+        //若想要实现ViewPager的元素为View，则adapter为一个RecyclerView的adapter
+        //，因为大型开发常用fragment，所以不常用
+        //viewPager2.setAdapter(new ViewPagerAdapter());
+
+
 
     }
 }
